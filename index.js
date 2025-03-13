@@ -12,7 +12,11 @@ connectDB();
 app.use(express.json());
 
 // Enable CORS for all origins
-app.use(cors()); // This allows requests from any origin
+app.use(cors({
+    origin: ['https://frontend-mern-deployment.vercel.app'],
+    methods: ['POST', 'GET','PUT','DELETE'],
+    credentials: true
+})); // This allows requests from any origin
 
 // Example Route
 app.get('/', (req, res) => {
